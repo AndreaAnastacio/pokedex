@@ -1,0 +1,261 @@
+@import url("https://fonts.googleapis.com/css2?family=PT+Sans+Narrow&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  text-decoration: none;
+  font-family: "PT Sans Narrow", sans-serif;
+}
+
+header {
+  top: 0;
+  left: 0;
+  padding: 1rem;
+  background-color: rgb(231, 111, 81);
+  width: 100%;
+  height: 5rem;
+  z-index: 2;
+  position: fixed;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+header .pokedex {
+  width: 10%;
+}
+
+.search {
+  padding: 0.5rem;
+  width: 30%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.search input {
+  border-radius: 5px;
+  border: 0;
+  margin-right: 4px;
+  width: 100%;
+  height: 100%;
+  background-color: white;
+  padding-left: 10px;
+}
+
+.search button {
+  background-color: rgb(231, 111, 81);
+  border-color: rgb(235, 117, 88);
+  border-radius: 5px;
+  cursor: pointer;
+}
+.search button:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+main .card-container {
+  height: 100vh;
+  width: 100%;
+  padding: 2rem;
+  padding-top: 8rem;
+  gap: 3rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(16rem, 1fr));
+}
+
+.card-container .card {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 90%;
+  height: 25rem;
+  cursor: pointer;
+}
+
+.card .face.front {
+  height: 25rem;
+  width: 100%;
+  padding: 0.8rem;
+  border-radius: 10px;
+  background-color: rgb(26, 35, 126);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.card .face.front .card-int {
+  height: 100%;
+  width: 100%;
+  padding: 0.7rem;
+  border-radius: 10px;
+  background-color: rgb(253, 216, 59);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.card .face.front .card-int .content {
+  width: 100%;
+  height: 100%;
+  border-radius: 10px;
+  background-color: rgb(255, 255, 255);
+}
+
+.card .face.front .content .number {
+  height: 15%;
+  width: 50%;
+  padding: 0;
+  border-bottom-right-radius: 20px;
+  background-color: rgb(253, 216, 59);
+  display: flex;
+  justify-items: center;
+  align-items: center;
+}
+.card .face.front .imagen {
+  width: 100%;
+  display: block;
+}
+
+.card .face.front .imagen:hover {
+  -webkit-transform: rotateY(180deg);
+  -webkit-transform-style: preserve-3d;
+  transform: rotateY(180deg);
+  transform-style: preserve-3d;
+}
+
+.card .face.front .content .info .name {
+  display: flex;
+  justify-content: center;
+  font-size: 22px;
+}
+
+.card .face.front .content .info .type {
+  display: flex;
+  justify-content: center;
+}
+
+.card .face.back {
+  height: 100%;
+  width: 100%;
+  padding: 0.8rem;
+  border-radius: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgb(26, 35, 126);
+}
+
+.card .face.back .card-int2 {
+  height: 100%;
+  width: 100%;
+  padding: 0.7rem;
+  border-radius: 10px;
+  border-width: 4px;
+  background-color: rgb(253, 216, 59);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.card .face.back .back-content {
+  height: 100%;
+  width: 100%;
+  border-radius: 10px;
+  border-width: 4px;
+  background-color: rgb(255, 255, 255);
+}
+.card .face.back .number {
+  height: 15%;
+  width: 50%;
+  padding: 0;
+  border-bottom-right-radius: 20px;
+  background-color: rgb(253, 216, 59);
+  display: flex;
+  justify-items: center;
+  align-items: center;
+}
+
+.card .face.back .back-content .info .name {
+  font-size: 22px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.card .face.back .back-content .info .list {
+  list-style: none;
+  padding: 0.5rem;
+  font-size: 18px;
+}
+
+.card {
+  position: relative;
+  transform-style: preserve-3d;
+}
+.card .face {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  transform-style: preserve-3d;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: 0.4s ease-in-out;
+  backface-visibility: hidden;
+  transform: perspective(500px) rotateY(0deg);
+}
+
+.card:hover .face.front {
+  transform: perspective(500px) rotateY(180deg);
+}
+
+.card .face.back {
+  transform: perspective(500px) rotateY(180deg);
+}
+
+.card:hover .face.back {
+  transform: perspective(500px) rotateY(360deg);
+}
+
+.overlay {
+  position: fixed;
+  top: 0;
+  padding-left: 32rem;
+  padding-right: 32rem;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.3);
+  width: 100%;
+  height: 100vh;
+  z-index: 2;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@media (max-width: 768px) {
+  .search {
+    width: 80%;
+  }
+  header .pokedex {
+    width: 20%;
+  }
+
+  .card {
+    height: 100%;
+  }
+
+  .card .face.front .imagen {
+    margin: auto;
+    width: 60%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .card .face.back .back-content .info .list {
+    padding: 1.5rem;
+  }
+}
